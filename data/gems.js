@@ -91,7 +91,7 @@
 
       out += h.toc([
         { id: 'g-lead', t: { en: 'Start here', zh: '從這裡開始' } },
-        { id: 'g-cal', t: { en: '2027 calendar', zh: '2027 行事曆' } },
+        { id: 'g-cal', t: { en: 'The calendar', zh: '行事曆' } },
         { id: 'g-fail', t: { en: 'The failure mode', zh: '失效模式' } },
         { id: 'g-sfg', t: { en: 'Science for Good', zh: '科學向善' } },
         { id: 'g-concepts', t: { en: '11 concepts', zh: '十一個概念' } },
@@ -130,27 +130,34 @@
       out += h.sec({
         id: 'g-cal',
         kick: { en: 'Logistics first', zh: '先談後勤' },
-        h2: { en: 'The 2027 season is about a month shorter', zh: '2027 賽季大約短了一個月' },
+        h2: { en: 'The season is as long as a date you do not control', zh: '賽季有多長，取決於一個你無法控制的日期' },
         lede: {
-          en: 'This is the single most actionable fact in the chapter, and it is purely about the calendar.',
-          zh: '這是本章最具行動性的單一事實，而它純粹是行事曆的問題。'
+          en: 'As of 20 November 2026, **iGEM has not published a 2027 calendar** — its competition calendar still covers 2026 only. That is itself the planning fact: build a plan that survives the Jamboree moving, because a month either way is an entire design–build–test cycle.',
+          zh: '截至 2026 年 11 月 20 日，**iGEM 尚未公布 2027 年行事曆**——其競賽行事曆目前仍只涵蓋 2026 年。這件事本身就是規劃上的事實：把計畫做成「大會日期移動也撐得住」的樣子，因為前後一個月就是一整個設計—建造—測試循環。'
         },
         body:
           h.fig({
             kind: 'gantt', tag: { en: 'calendar', zh: '行事曆' },
-            title: { en: 'Jamboree dates: 2026 against 2027', zh: '大會日期：2026 對 2027' },
-            sub: { en: 'Both in Paris. The 2027 Grand Jamboree is 18–21 October 2027 — roughly four weeks earlier than 2026\'s 13–16 November.', zh: '兩屆都在巴黎。2027 年 Grand Jamboree 為 2027 年 10 月 18–21 日——比 2026 年的 11 月 13–16 日約早四週。' },
+            title: { en: 'The 2026 season, and the scenario a 2027 plan has to survive', zh: '2026 賽季，以及 2027 計畫必須撐住的情境' },
+            sub: {
+              en: 'The 2026 bars are iGEM\'s published dates. The 2027 bar is a **scenario, not an announcement** — what the season looks like if the Jamboree lands four weeks earlier.',
+              zh: '2026 年的橫條是 iGEM 已公布的日期。2027 年的橫條是**情境推演，不是官方公告**——假設大會提早四週時，賽季會是什麼樣子。'
+            },
             opts: { min: 2026.0, max: 2027.95 },
             data: [
-              { label: { en: 'Usable design–build–test season, 2026', zh: '2026 年可用的設計—建造—測試賽季' }, start: 2026.1, end: 2026.86, tone: 'b', note: { en: 'to 13–16 Nov', zh: '至 11 月 13–16 日' } },
-              { label: { en: 'Usable design–build–test season, 2027', zh: '2027 年可用的設計—建造—測試賽季' }, start: 2027.1, end: 2027.79, tone: 'a', note: { en: 'to 18–21 Oct — one cycle shorter', zh: '至 10 月 18–21 日——少一個循環' } },
+              { label: { en: 'Usable design–build–test season, 2026 (published)', zh: '2026 年可用的設計—建造—測試賽季（已公布）' }, start: 2026.1, end: 2026.86, tone: 'b', note: { en: 'Grand Jamboree, Paris, from 13 Nov', zh: 'Grand Jamboree，巴黎，自 11 月 13 日起' } },
+              { label: { en: 'Same season if 2027 moves four weeks earlier', zh: '若 2027 年提早四週，同一個賽季' }, start: 2027.1, end: 2027.79, tone: 'a', note: { en: 'scenario — one cycle shorter', zh: '情境——少一個循環' } },
               { label: { en: 'A realistic design→order→assay cycle', zh: '現實中一次設計→訂購→檢測的循環' }, start: 2027.1, end: 2027.27, tone: 'g', note: { en: '~6–8 weeks for a school team', zh: '學校團隊約 6–8 週' } },
               { label: { en: 'Wiki freeze and writing, non-negotiable', zh: 'Wiki 凍結與撰寫，不可壓縮' }, start: 2027.72, end: 2027.79, tone: 'r' }
             ],
             caption: {
-              en: 'For a project where design feeds expression feeds measurement, four weeks is **one entire design-build-test cycle**. A team planning on the 2026 calendar loses its last iteration — which is usually the one that works, since published design campaigns improve markedly between rounds. Move every internal deadline forward by a month. No 2027 theme or registration calendar had been announced as of 20 November 2026.',
-              zh: '對一個「設計餵給表達、表達餵給量測」的專案而言，四週就是**整整一個設計—建造—測試循環**。一支照 2026 年行事曆規劃的隊伍會失去最後一次迭代——而那通常正是成功的那一次，因為已發表的設計活動在輪次之間會明顯改善。把所有內部截止日往前移一個月。截至 2026 年 11 月 20 日，2027 年的主題與報名行事曆都尚未公布。'
+              en: 'The 2026 dates are from iGEM\'s own competition calendar, read on 20 November 2026: on-site badge collection opened 12 November and Expo Days began 13 November, in Paris. **No 2027 dates, venue or theme had been announced at that point** — treat any 2027 date you see elsewhere as unconfirmed until it appears on competition.igem.org, and check it the week it does.',
+              zh: '2026 年的日期取自 iGEM 自己的競賽行事曆，於 2026 年 11 月 20 日讀取：現場領證於 11 月 12 日開放，Expo Days 自 11 月 13 日開始，地點在巴黎。**當時 2027 年的日期、地點與主題均尚未公布**——在 competition.igem.org 上出現之前，任何你在別處看到的 2027 日期都請視為未確認，並在它公布的那一週立刻查對。'
             }
+          }) +
+          h.warn({
+            en: '**Why this is the first thing in the chapter.** For a project where design feeds expression feeds measurement, four weeks is **one entire design–build–test cycle** — and in published design campaigns the later rounds are the ones that work, because each round is informed by the last. A team that plans to the previous year\'s calendar and then loses four weeks loses its best iteration. So: set internal deadlines against the *earliest plausible* Jamboree, not the last one, and treat any extra time as a bonus round rather than the plan.',
+            zh: '**為什麼這是本章的第一件事。** 對一個「設計餵給表達、表達餵給量測」的專案而言，四週就是**整整一個設計—建造—測試循環**——而在已發表的設計活動中，真正成功的往往是後面幾輪，因為每一輪都吸收了上一輪的資訊。一支照去年行事曆規劃、結果少了四週的隊伍，失去的正是它最好的那次迭代。所以：把內部截止日對齊到*最早可能*的大會日期，而不是去年的日期，並把多出來的時間當成額外的一輪，而不是計畫的一部分。'
           })
       });
 
@@ -476,8 +483,8 @@
               done: { en: 'A rank correlation between prediction and measurement, with an honest confidence interval, on a panel you pre-registered. That is a contribution whether the correlation is strong, weak or negative.', zh: '在一個你預先登錄過的面板上，得到預測與量測之間的等級相關，並附誠實的信賴區間。無論相關是強、是弱還是負的，那都是一項貢獻。' }
             },
             {
-              h: { en: 'Phase 3 · Publish all of it, failures included (August – October)', zh: '第 3 階段 · 全部發表，含失敗（八月–十月）' },
-              p: { en: 'Remember the calendar: the 2027 Jamboree is 18–21 October, about four weeks earlier than 2026. The writing window is not negotiable and it is shorter than you think.', zh: '記住行事曆：2027 年大會是 10 月 18–21 日，比 2026 年約早四週。撰寫的時間窗不可壓縮，而且比你想的更短。' },
+              h: { en: 'Phase 3 · Publish all of it, failures included (August – the wiki freeze)', zh: '第 3 階段 · 全部發表，含失敗（八月–Wiki 凍結）' },
+              p: { en: 'Remember the calendar: as of November 2026 no 2027 Jamboree date had been announced, so write to the earliest plausible one. The writing window is not negotiable and it is shorter than you think.', zh: '記住行事曆：截至 2026 年 11 月，2027 年大會日期尚未公布，所以請以最早可能的日期來排。撰寫的時間窗不可壓縮，而且比你想的更短。' },
               items: [
                 { en: 'Every model written up with its parameters cited to source, its assumptions stated, and what you did not measure admitted. This is exactly the standard the judges praised in 2022.', zh: '每個模型都寫成完整的形式：參數標註到出處、假設明確陳述、沒量測的部分如實承認。這正是 2022 年評審所讚許的標準。' },
                 { en: 'Publish the dataset with provenance, under an open licence, in a repository that will outlive the season.', zh: '把帶溯源資訊的資料集以開放授權發表，放在一個能比這個賽季活得更久的程式庫裡。' },

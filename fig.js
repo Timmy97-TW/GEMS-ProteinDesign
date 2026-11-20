@@ -59,7 +59,7 @@
       return '<a href="' + u + '"' + (/^https?:/.test(u) ? ' target="_blank" rel="noopener"' : '') + '>' + t2 + '</a>';
     });
     s = s.replace(/==([^=]+)==/g, '<span class="gt">$1</span>');
-    s = s.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
+    s = s.replace(/\*\*((?:[^*]|\*(?!\*))+)\*\*/g, '<strong>$1</strong>');
     s = s.replace(/(^|[^*])\*([^*]+)\*/g, '$1<em>$2</em>');
     s = s.replace(/`([^`]+)`/g, '<code class="mono">$1</code>');
     return s;
@@ -169,7 +169,7 @@
      printing them literally inside a chart */
   function stripMd(v) {
     return String(v == null ? '' : v)
-      .replace(/\*\*([^*]+)\*\*/g, '$1')
+      .replace(/\*\*((?:[^*]|\*(?!\*))+)\*\*/g, '$1')
       .replace(/(^|[^*])\*([^*]+)\*/g, '$1$2')
       .replace(/==([^=]+)==/g, '$1')
       .replace(/`([^`]+)`/g, '$1')

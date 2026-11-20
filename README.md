@@ -42,7 +42,7 @@ are printed beside the score so the judgement can be disagreed with precisely.
 | 07 | GEMS pathways | Four Science for Good tracks, eleven iGEM 2027 concepts, compounding assets, and what a student team cannot do |
 | 08 | Toolbox | Which tool answers which question, with compute, licence and cost; a stack that runs on a free Colab tier |
 | 09 | Metrics & terms | What pLDDT, ipTM, scRMSD and k_cat/K_M actually measure, the trap on each, and a bilingual glossary |
-| 10 | References | 434 sourced entries, filterable, plus a plain statement of method and weaknesses |
+| 10 | References | 435 sourced entries, filterable, plus a plain statement of method and weaknesses |
 
 ## How to read the numbers
 

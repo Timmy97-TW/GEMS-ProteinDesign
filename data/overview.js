@@ -7,6 +7,8 @@
     title: { en: 'Overview', zh: '總覽' },
     render: function (h) {
       var out = '';
+      /* read the real count so the headline figure can never drift from the data */
+      var NREF = (PD.refs || []).reduce(function (a, g) { return a + g.items.length; }, 0);
 
       /* ---------- hero ---------- */
       out += '<div class="hero"><div class="wrap">' +
@@ -16,14 +18,14 @@
           zh: '蛋白質設計在==幾何==上變得非常好，而 2026 年是它發現自己對==其餘一切==所知甚少的那一年。'
         }) + '</h1>' +
         '<p class="lede">' + h.md({
-          en: 'An academic history, technology-trend analysis and state-of-the-art map of computational protein design, from Pauling\'s α-helix in 1951 to the week this page was written. Eleven chapters, 434 sourced references, and a deliberate discipline: every claim labelled peer-reviewed, preprint, company claim or press, and every number read as an upper bound unless someone independent measured it.',
-          zh: '一份關於計算蛋白質設計的學術史、技術趨勢分析與技術現狀地圖，從 1951 年 Pauling 的 α 螺旋，到本頁撰寫的那一週。十一章、434 筆有出處的參考資料，以及一項刻意的紀律：每個主張都標註為同儕審查、預印本、公司宣稱或媒體；而每個數字除非有獨立第三方量測過，都讀成上界。'
+          en: 'An academic history, technology-trend analysis and state-of-the-art map of computational protein design, from Pauling\'s α-helix in 1951 to the week this page was written. Eleven chapters, ' + NREF + ' sourced references, and a deliberate discipline: every claim labelled peer-reviewed, preprint, company claim or press, and every number read as an upper bound unless someone independent measured it.',
+          zh: '一份關於計算蛋白質設計的學術史、技術趨勢分析與技術現狀地圖，從 1951 年 Pauling 的 α 螺旋，到本頁撰寫的那一週。十一章、' + NREF + ' 筆有出處的參考資料，以及一項刻意的紀律：每個主張都標註為同儕審查、預印本、公司宣稱或媒體；而每個數字除非有獨立第三方量測過，都讀成上界。'
         }) + '</p>' +
         h.stats([
           { v: '75', l: { en: 'Years covered, 1951 to 2026', zh: '涵蓋年數，1951 至 2026' } },
           { v: '11', l: { en: 'Chapters, including a 2026 frontier map', zh: '章節數，含 2026 前沿地圖' } },
           { v: '15', l: { en: 'Capability axes scored separately', zh: '分別評分的能力軸' } },
-          { v: '434', l: { en: 'Sourced references', zh: '有出處的參考資料' } },
+          { v: String(NREF), l: { en: 'Sourced references', zh: '有出處的參考資料' } },
           { v: '0.6–0.76', l: { en: 'AUC of the filters the field relies on', zh: '這個領域所依賴的篩選器 AUC' } },
           { v: '2.2×10⁵', l: { en: 'Best designed enzyme k_cat/K_M, M⁻¹s⁻¹', zh: '最佳設計酵素 k_cat/K_M（M⁻¹s⁻¹）' } }
         ]) +
@@ -170,7 +172,7 @@
         { id: 'gems', n: '07', t: { en: 'GEMS pathways', zh: 'GEMS 應用路徑' }, d: { en: 'Four Science for Good tracks, eleven iGEM 2027 concepts scored for feasibility, the compounding assets, and an unflinching list of what a student team cannot do.', zh: '四條科學向善軌道、十一個經可行性評分的 iGEM 2027 概念、可複利累積的資產，以及一份毫不迴避的「學生團隊做不到什麼」清單。' } },
         { id: 'toolbox', n: '08', t: { en: 'Toolbox', zh: '工具地圖' }, d: { en: 'Which tool answers which question, with access route, compute requirement, licence and cost — and a minimum viable stack that runs on a free Colab tier.', zh: '哪個工具回答哪個問題，附取用途徑、運算需求、授權與成本——以及一套在免費 Colab 層就能跑的最小可行堆疊。' } },
         { id: 'glossary', n: '09', t: { en: 'Metrics & terms', zh: '指標與術語' }, d: { en: 'What pLDDT, ipTM, scRMSD and k_cat/K_M actually measure, the trap attached to each, a nine-question reading checklist and a bilingual glossary.', zh: 'pLDDT、ipTM、scRMSD 與 k_cat/K_M 實際量的是什麼、各自的陷阱，一份九問檢查表，以及中英對照術語表。' } },
-        { id: 'refs', n: '10', t: { en: 'References', zh: '參考資料' }, d: { en: 'All 434 sources, grouped by chapter and filterable — plus a plain statement of how this report was assembled and where it is weak.', zh: '全部 434 筆出處，依章節分組並可篩選——另附本報告如何彙編、以及弱在哪裡的直白說明。' } }
+        { id: 'refs', n: '10', t: { en: 'References', zh: '參考資料' }, d: { en: 'All ' + NREF + ' sources, grouped by chapter and filterable — plus a plain statement of how this report was assembled and where it is weak.', zh: '全部 ' + NREF + ' 筆出處，依章節分組並可篩選——另附本報告如何彙編、以及弱在哪裡的直白說明。' } }
       ];
       out += h.sec({
         id: 'o-chapters',

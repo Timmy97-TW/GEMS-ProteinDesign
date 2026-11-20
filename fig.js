@@ -757,7 +757,13 @@
           cx: X(+p.x), cy: Y(+p.y), r: 5.5, fill: hue, stroke: C.surface, 'stroke-width': 2,
           'data-tip': '<b>' + esc(T(p.label || s.name)) + '</b>' + esc(T(o.xlabel || 'x') + ': ' + fmt(p.x) + ' · ' + T(o.ylabel || 'y') + ': ' + fmt(p.y))
         });
-        if (p.show) g += txt(X(+p.x) + 9, Y(+p.y), clip(T(p.label), 10.8, 120), { fs: 10.8, fill: C.ink2, bl: 'central' });
+        if (p.show) {
+          /* flip the label to the left of the dot when it would run off the plot */
+          var px = X(+p.x), right = px < padL + pw * 0.58;
+          var room = right ? (padL + pw - px - 12) : (px - padL - 12);
+          g += txt(px + (right ? 9 : -9), Y(+p.y), clip(T(p.label), 10.8, Math.min(230, room)),
+            { fs: 10.8, fill: C.ink2, bl: 'central', anchor: right ? 'start' : 'end' });
+        }
       });
     });
     return { svg: g, W: W, H: H };

@@ -235,12 +235,16 @@
     th.style.left = (on.offsetLeft) + 'px';
     th.style.width = (on.offsetWidth) + 'px';
   }
+  /* Re-render by default: the figures read FIG's language at paint time while the
+     surrounding prose is baked in at render time, so skipping the re-render leaves
+     the page half-translated. Callers must opt out explicitly. */
   function setLang(l, rerender) {
+    if (l === LANG) return;
     LANG = l;
     try { localStorage.setItem('pd-lang', l); } catch (e) { }
     w.FIG.setLang(l);
     applyStatic();
-    if (rerender) render(current(), true);
+    if (rerender !== false) render(current(), true);
   }
 
   /* exposed for tests and for programmatic language switching */
@@ -355,7 +359,7 @@
       var g = e.target.closest ? e.target.closest('[data-go]') : null;
       if (g) { location.hash = '#' + g.getAttribute('data-go'); return; }
       var lb = e.target.closest ? e.target.closest('.lang button') : null;
-      if (lb) { setLang(lb.getAttribute('data-lang'), true); }
+      if (lb) { setLang(lb.getAttribute('data-lang')); }
     });
     w.addEventListener('hashchange', function () {
       var p = pageFromHash();
